@@ -83,8 +83,63 @@ public class xlsx extends Conexion {
 
     public String ejecutar(HttpServletRequest request)throws SQLException, FileNotFoundException {
         
+
+      // VARABLES TAP #2
+      int transporteTR = 0;
+      String consulta = "", fechaInicioTR="", fechaFinTR="", truckPlatesTR="";
+      
+      //VARIABLES TAB #1
+      int idBodega=0, transporteR=0, customerR=0, statusR=0;
+      String fechaInicioR = "", fechaFinR="", noTrailerR="";
+        
+        
+        Conexion c = new Conexion();
+        Connection con = c.getConnection();
+
+        CONEXION NUEVOS CAAMBIOS DESDE LA RAMA DE MAIN 
+        
+        int mostrarReporte = Integer.parseInt(request.getParameter("mostrarReporte"));
+        
+        if(mostrarReporte == 2)
+        {
+            /* RECUPERACIÓN VARIABLES TRACTO */
+            fechaInicioTR = request.getParameter("fechaInicioRTR");
+            fechaFinTR = request.getParameter("fechaFinRTR");
+            truckPlatesTR = request.getParameter("truckPlatesTR");
+            transporteTR = Integer.parseInt(request.getParameter("transporteRTR"));
+            idBodega = Integer.parseInt(request.getParameter("idBodegaTR"));
+            
+            // AGREGAR FILTROS FALTANTES CON CONSULTA
+            if(!truckPlatesTR.equals(""))
+                consulta += " AND tractos.placas_tracto='"+truckPlatesTR+"'";
+            if(transporteTR != 0)
+                consulta += " AND tractos.transporte='"+transporteTR+"'";
+        }else{
+            /* VARIABLES DE RECUPERACIÓN DE FORMULARIO */
+            fechaInicioR = request.getParameter("fechaInicioR");
+            fechaFinR = request.getParameter("fechaFinR");
+            noTrailerR = request.getParameter("noTrailerR");
+
+            idBodega = Integer.parseInt(request.getParameter("idBodega"));
+            transporteR = Integer.parseInt(request.getParameter("transporteR"));
+            customerR = Integer.parseInt(request.getParameter("customerR"));
+            statusR = Integer.parseInt(request.getParameter("statusR"));
+
+
+             if(!noTrailerR.equals(""))
+                consulta += " and arribo.no_caja='" + noTrailerR + "'";
+
+            if(transporteR != 0)
+                consulta += " and arribo.transporte='" + transporteR + "'";
+
+            if(customerR != 0)
+                consulta += " and arribo.cliente='" + customerR + "'";
+        }
+        
+
      -- CAMBIO EN CONDIGO DE TEST PARA FUSION DE CODIGO CONSULTAS TEST
     
+
 
         if(mostrarReporte == 1){//Movimientos
             if(statusR == 0){//Base en fecha entrada
