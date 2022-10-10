@@ -83,6 +83,7 @@ public class xlsx extends Conexion {
 
     public String ejecutar(HttpServletRequest request)throws SQLException, FileNotFoundException {
         
+
       // VARABLES TAP #2
       int transporteTR = 0;
       String consulta = "", fechaInicioTR="", fechaFinTR="", truckPlatesTR="";
@@ -94,6 +95,8 @@ public class xlsx extends Conexion {
         
         Conexion c = new Conexion();
         Connection con = c.getConnection();
+
+        CONEXION NUEVOS CAAMBIOS DESDE LA RAMA DE MAIN 
         
         int mostrarReporte = Integer.parseInt(request.getParameter("mostrarReporte"));
         
@@ -133,6 +136,10 @@ public class xlsx extends Conexion {
                 consulta += " and arribo.cliente='" + customerR + "'";
         }
         
+
+     -- CAMBIO EN CONDIGO DE TEST PARA FUSION DE CODIGO CONSULTAS TEST
+    
+
 
         if(mostrarReporte == 1){//Movimientos
             if(statusR == 0){//Base en fecha entrada
