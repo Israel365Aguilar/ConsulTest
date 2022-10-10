@@ -103,7 +103,7 @@ public class xlsx extends Conexion {
         if(mostrarReporte == 2)
         {
             /* RECUPERACIÓN VARIABLES TRACTO */
-            fechaInicioTR = request.getParameter("fechaInicioRTR");
+            fechaInicioTR = request.getParameter("fechaInicioRTR cambios desde la TAMA MAIN");
             fechaFinTR = request.getParameter("fechaFinRTR");
             truckPlatesTR = request.getParameter("truckPlatesTR");
             transporteTR = Integer.parseInt(request.getParameter("transporteRTR"));
