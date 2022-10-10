@@ -94,6 +94,8 @@ public class xlsx extends Conexion {
         
         Conexion c = new Conexion();
         Connection con = c.getConnection();
+
+        CONEXION NUEVOS CAAMBIOS DESDE LA RAMA DE MAIN 
         
         int mostrarReporte = Integer.parseInt(request.getParameter("mostrarReporte"));
         
