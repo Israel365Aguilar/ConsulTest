@@ -74,7 +74,7 @@ import org.apache.commons.io.IOUtils;
 import org.apache.poi.ss.usermodel.FillPatternType;
 import org.apache.poi.ss.usermodel.Font;
 
-
+-- CONSULTA DESDE MAIN
 
 public class xlsx extends Conexion {
     -- CPDIGO DESDE CODE TEST
