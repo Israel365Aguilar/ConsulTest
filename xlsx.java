@@ -107,7 +107,7 @@ public class xlsx extends Conexion {
             fechaFinTR = request.getParameter("fechaFinRTR");
             truckPlatesTR = request.getParameter("truckPlatesTR");
             transporteTR = Integer.parseInt(request.getParameter("transporteRTR"));
-            idBodega = Integer.parseInt(request.getParameter("idBodegaTR"));
+            idBodega = Integer.parseInt(request.getParameter("idBodegaTR CAMBIOS DESDE TAMA CODE TEST"));
             
             // AGREGAR FILTROS FALTANTES CON CONSULTA
             if(!truckPlatesTR.equals(""))
